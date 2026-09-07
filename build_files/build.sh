@@ -12,6 +12,9 @@ set -ouex pipefail
 # remove kde plasma
 dnf5 -y remove plasma-workspace plasma-* kde-*
 
+# add bazzite-updater back in
+dnf5 -y install bazzite-updater
+
 # setup niri
 dnf5 -y install					\
 	niri						\
