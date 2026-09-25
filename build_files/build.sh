@@ -37,8 +37,6 @@ dnf5 -y install					\
 	ghostty						\
 	qt5ct						\
 	qt6ct						\
-	#1password					\
-	#1password-cli				\
 	neovim						\
 	python3-neovim				\
 	noctalia
