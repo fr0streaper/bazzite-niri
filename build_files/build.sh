@@ -10,7 +10,15 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # remove kde plasma
-dnf5 -y remove plasma-workspace plasma-* kde-*
+# dnf5 -y remove plasma-workspace plasma-* kde-*
+
+dnf5 -y remove                  \
+	xwaylandvideobridge
+
+dnf5 repository-keys import https://downloads.1password.com/linux/keys/1password.asc
+sh -c 'echo -e "[1password]\nname=1Password Stable Channel\nbaseurl=https://downloads.1password.com/linux/rpm/stable/\$basearch\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=https://downloads.1password.com/linux/keys/1password.asc" > /etc/yum.repos.d/1password.repo'
+
+dnf5 -y copr enable "scottames/ghostty"
 
 # setup niri
 dnf5 -y install					\
@@ -21,17 +29,22 @@ dnf5 -y install					\
 	xdg-desktop-portal-gnome	\
 	gnome-keyring				\
 	nautilus					\
-	mako						\
+	thunar                      \
+	syncthing					\
 	fuzzel						\
-	waybar						\
-	swayidle					\
-	swaylock					\
-	polkit-kde					\
 	xwayland-satellite			\
-	swaybg
+	ghostty						\
+	qt5ct						\
+	qt6ct						\
+	1password					\
+	1password-cli				\
+	neovim						\
+	python3-neovim				\
+	noctalia
 
-systemctl enable podman.socket
-systemctl --global add-wants niri.service mako.service
-systemctl --global add-wants niri.service swayidle.service
-systemctl --global add-wants niri.service swaybg.service
-systemctl --global add-wants niri.service plasma-polkit-agent.service
+#systemctl enable podman.socket
+
+# systemctl --global add-wants niri.service mako.service
+# systemctl --global add-wants niri.service swayidle.service
+# systemctl --global add-wants niri.service swaybg.service
+# systemctl --global add-wants niri.service plasma-polkit-agent.service
