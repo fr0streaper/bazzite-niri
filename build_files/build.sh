@@ -40,6 +40,7 @@ dnf5 -y install					\
 	neovim						\
 	python3-neovim				\
 	emacs						\
+	mupdf						\
 	noctalia
 
 #systemctl enable podman.socket
