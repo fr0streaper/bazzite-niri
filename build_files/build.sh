@@ -42,6 +42,7 @@ dnf5 -y install					\
 	emacs						\
 	mupdf						\
 	mupdf-devel					\
+	playerctl					\
 	noctalia
 
 #systemctl enable podman.socket
