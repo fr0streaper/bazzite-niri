@@ -26,7 +26,6 @@ dnf5 -y install					\
 	niri						\
 	alacritty					\
 	gdm							\
-	xdg-desktop-portal-gtk		\
 	xdg-desktop-portal-gnome	\
 	gnome-keyring				\
 	nautilus					\
@@ -45,6 +44,7 @@ dnf5 -y install					\
 	playerctl					\
 	noctalia
 
+# 	xdg-desktop-portal-gtk		\ already installed
 #systemctl enable podman.socket
 
 # systemctl --global add-wants niri.service mako.service
