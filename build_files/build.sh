@@ -25,7 +25,6 @@ dnf5 -y copr enable "scottames/ghostty"
 dnf5 -y install					\
 	niri						\
 	alacritty					\
-	gdm							\
 	xdg-desktop-portal-gnome	\
 	gnome-keyring				\
 	nautilus					\
@@ -45,6 +44,7 @@ dnf5 -y install					\
 	noctalia
 
 # 	xdg-desktop-portal-gtk		\ already installed
+# 	gdm							\ can't be installed due to issues with dependencies for now, not used anyway so dropping
 #systemctl enable podman.socket
 
 # systemctl --global add-wants niri.service mako.service
